@@ -1,20 +1,19 @@
 // src/App.js
 
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
 
 // 사용할 Action creator를 import 합니다.
-import { plusOne } from "./redux/modules/counter";
+import { plusOne } from './redux/modules/counter';
 
-import AddForm from "./components/AddForm";
-import TodoListContainer from "./components/TodoListContainter";
+import AddForm from './components/AddForm';
+import TodoListContainer from './components/TodoListContainter';
 
 const App = () => {
   // 간단 계산기
   const dispatch = useDispatch();
   const plusNumber = useSelector((state) => state.counter.plusNumber);
-
 
   // 편한 계산기
   const [number, setNumber] = useState(0);
@@ -24,15 +23,9 @@ const App = () => {
     setNumber(+value);
   };
 
-  
-  const onClickAddNumberHandler = () => {
-		
-  };
+  const onClickAddNumberHandler = () => {};
 
-  const onClickMinusNumberHandler = () => {
-		
-  };
-  
+  const onClickMinusNumberHandler = () => {};
 
   return (
     <div>
@@ -51,32 +44,22 @@ const App = () => {
         {/* 빼기 버튼 추가 */}
         <div>
           {/* {minusNumber} */}
-          <button
-            onClick={() => {
-
-            }}
-          >
-            - 1
-          </button>
+          <button onClick={() => {}}>- 1</button>
         </div>
-        <div>
-          {/* 합계 : {totalNumber} */}
-        </div>
+        <div>{/* 합계 : {totalNumber} */}</div>
       </div>
 
-      <hr/>
+      <hr />
 
       <div>
         <div>편한 계산기</div>
-        <input type="number" onChange={onChangeHandler} />
+        <input type='number' onChange={onChangeHandler} />
         <button onClick={onClickAddNumberHandler}>더하기</button>
         <button onClick={onClickMinusNumberHandler}>빼기</button>
-        <div>
-          {/* 결과: {globalNumber} */}
-        </div>
+        <div>{/* 결과: {globalNumber} */}</div>
       </div>
-      
-      <hr/>
+
+      <hr />
 
       <div>
         <div>todo list</div>

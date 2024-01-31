@@ -7,18 +7,16 @@ export const addTodo = (payload) => {
 };
 
 // initial State
-const initialState = {
-  todos: [
-    {
-      id: 1,
-      title: 'react를 배워봅시다.',
-    },
-    {
-      id: 2,
-      title: 'redux를 배워봅시다.',
-    },
-  ],
-};
+const initialState = [
+  {
+    id: 1,
+    title: 'react를 배워봅시다.',
+  },
+  {
+    id: 2,
+    title: 'redux를 배워봅시다.',
+  },
+];
 
 // Reducer
 const todos = (state = initialState, action) => {
