@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 // 사용할 Action creator를 import 합니다.
-import { minusOne, plusOne } from './redux/modules/counter';
+import { minusN, minusOne, plusN, plusOne } from './redux/modules/counter';
 
 import AddForm from './components/AddForm';
 import TodoListContainer from './components/TodoListContainter';
@@ -16,6 +16,7 @@ const App = () => {
   const plusNumber = useSelector((state) => state.counter.plusOneNumber);
   const minusNumber = useSelector((state) => state.counter.minusOneNumber);
   const totalNumber = plusNumber + minusNumber;
+  const globalNumber = useSelector((state) => state.counter.globalNumber);
 
   // 편한 계산기
   const [number, setNumber] = useState(0);
@@ -25,9 +26,13 @@ const App = () => {
     setNumber(+value);
   };
 
-  const onClickAddNumberHandler = () => {};
+  const onClickAddNumberHandler = () => {
+    dispatch(plusN(number));
+  };
 
-  const onClickMinusNumberHandler = () => {};
+  const onClickMinusNumberHandler = () => {
+    dispatch(minusN(number));
+  };
 
   return (
     <div>
@@ -55,10 +60,10 @@ const App = () => {
 
       <div>
         <div>편한 계산기</div>
-        <input type='number' onChange={onChangeHandler} />
+        <input type='number' onChange={onChangeHandler} value={number} />
         <button onClick={onClickAddNumberHandler}>더하기</button>
         <button onClick={onClickMinusNumberHandler}>빼기</button>
-        <div>{/* 결과: {globalNumber} */}</div>
+        <div>합계: {globalNumber}</div>
       </div>
 
       <hr />
