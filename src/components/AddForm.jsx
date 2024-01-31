@@ -1,14 +1,11 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addTodo } from "../redux/modules/todos";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 const AddForm = () => {
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState('');
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    
   };
 
   return (
@@ -16,7 +13,7 @@ const AddForm = () => {
       <form onSubmit={onSubmitHandler}>
         <label>Todos의 제목을 입력하세요</label>
         <StInput
-          type="text"
+          type='text'
           value={title}
           onChange={(e) => {
             setTitle(e.target.value);

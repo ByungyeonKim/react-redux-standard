@@ -1,5 +1,5 @@
 // Action value
-const ADD_TODO = "ADD_TODO";
+const ADD_TODO = 'ADD_TODO';
 
 // Action Creator
 export const addTodo = (payload) => {
@@ -11,11 +11,11 @@ const initialState = {
   todos: [
     {
       id: 1,
-      title: "react를 배워봅시다.",
+      title: 'react를 배워봅시다.',
     },
     {
       id: 2,
-      title: "redux를 배워봅시다.",
+      title: 'redux를 배워봅시다.',
     },
   ],
 };
@@ -24,9 +24,7 @@ const initialState = {
 const todos = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
-      return {
-        
-      };
+      return {};
     default:
       return state;
   }

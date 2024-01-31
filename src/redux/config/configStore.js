@@ -1,7 +1,7 @@
-import { createStore } from "redux";
-import { combineReducers } from "redux";
-import counter from "../modules/counter";
-import todos from "../modules/todos";
+import { createStore } from 'redux';
+import { combineReducers } from 'redux';
+import counter from '../modules/counter';
+import todos from '../modules/todos';
 
 /*
 1. createStore()
@@ -12,15 +12,15 @@ import todos from "../modules/todos";
 
 /*
 2. combineReducers()
-리덕스는 action —> dispatch —> reducer 순으로 동작한다고 말씀드렸죠? 
-이때 애플리케이션이 복잡해지게 되면 reducer 부분을 여러 개로 나눠야 하는 경우가 발생합니다. 
-combineReducers은 여러 개의 독립적인 reducer의 반환 값을 하나의 상태 객체로 만들어줍니다.
+리덕스는 dispatch —> action -> reducer 순으로 동작해요.
+이때 애플리케이션이 복잡해지게 되면 reducer 부분을 여러 개로 나눠야 하는 경우가 발생합니다.
+combineReducers은 여러 개의 독립적인 reducer의 반환 값을 하나의 객체로 결합(combine)해줍니다.
 */
 
 const rootReducer = combineReducers({
-    counter: counter,
-    todos: todos
-}); 
-const store = createStore(rootReducer); 
+  counter: counter,
+  todos: todos,
+});
+const store = createStore(rootReducer);
 
-export default store; 
+export default store;
