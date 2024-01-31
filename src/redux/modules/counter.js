@@ -12,10 +12,16 @@ export const plusOne = () => {
   };
 };
 
+export const minusOne = () => {
+  return {
+    type: MINUS_ONE,
+  };
+};
+
 // 초기 상태값
 const initialState = {
-  plusOneResult: 0,
-  minusOneResult: 0,
+  plusOneNumber: 0,
+  minusOneNumber: 0,
 
   globalNumber: 0,
 };
@@ -24,10 +30,16 @@ const initialState = {
 const counter = (state = initialState, action) => {
   switch (action.type) {
     case PLUS_ONE: // case에서도 문자열이 아닌, 위에서 선언한 상수를 넣어줍니다.
-      console.log(state.plusNumber);
+      console.log(state.plusOneNumber);
       return {
         ...state, // 다른 상태값을 유지하기 위해 현재 상태를 복사합니다.
-        plusNumber: state.plusNumber + 1,
+        plusOneNumber: state.plusOneNumber + 1,
+      };
+    case MINUS_ONE: // case에서도 문자열이 아닌, 위에서 선언한 상수를 넣어줍니다.
+      console.log(state.minusOneNumber);
+      return {
+        ...state, // 다른 상태값을 유지하기 위해 현재 상태를 복사합니다.
+        minusOneNumber: state.minusOneNumber - 1,
       };
 
     default:

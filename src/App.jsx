@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 // 사용할 Action creator를 import 합니다.
-import { plusOne } from './redux/modules/counter';
+import { minusOne, plusOne } from './redux/modules/counter';
 
 import AddForm from './components/AddForm';
 import TodoListContainer from './components/TodoListContainter';
@@ -13,7 +13,9 @@ import TodoListContainer from './components/TodoListContainter';
 const App = () => {
   // 간단 계산기
   const dispatch = useDispatch();
-  const plusNumber = useSelector((state) => state.counter.plusNumber);
+  const plusNumber = useSelector((state) => state.counter.plusOneNumber);
+  const minusNumber = useSelector((state) => state.counter.minusOneNumber);
+  const totalNumber = plusNumber + minusNumber;
 
   // 편한 계산기
   const [number, setNumber] = useState(0);
@@ -43,10 +45,10 @@ const App = () => {
         </div>
         {/* 빼기 버튼 추가 */}
         <div>
-          {/* {minusNumber} */}
-          <button onClick={() => {}}>- 1</button>
+          {minusNumber}
+          <button onClick={() => dispatch(minusOne())}>- 1</button>
         </div>
-        <div>{/* 합계 : {totalNumber} */}</div>
+        <div>합계 : {totalNumber}</div>
       </div>
 
       <hr />
