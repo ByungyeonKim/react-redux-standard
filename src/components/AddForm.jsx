@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { addTodo } from '../redux/modules/todos';
 
 const AddForm = () => {
   const [title, setTitle] = useState('');
+  const dispatch = useDispatch();
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
+    if (!title) {
+      alert('제목을 입력해주세요.');
+      return;
+    }
+
+    dispatch(addTodo(title));
   };
 
   return (

@@ -23,8 +23,18 @@ const initialState = {
 // Reducer
 const todos = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_TODO:
-      return {};
+    case ADD_TODO: {
+      const newTodo = {
+        id: crypto.randomUUID(),
+        title: action.payload,
+      };
+
+      return {
+        ...state,
+        todoItems: [...state.todoItems, newTodo],
+      };
+    }
+
     default:
       return state;
   }
